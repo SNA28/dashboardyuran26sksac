@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SK St. Anne's Convent | Sistem Yuran 2026</title>
+    <title>SK St. Anne's Convent | Sistem Pengurusan Yuran 2026</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Cinzel:wght@700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -11,72 +11,77 @@
     
     <style>
         :root { 
-            --dark-blue: #001F3F; /* Dark Blue Utama */
-            --dark-blue-soft: #082d54;
-            --accent-gold: #c5a059;
+            --navy-dark: #050a18; /* Navy Paling Gelap */
+            --navy-prime: #1a237e; /* Navy Koperat */
+            --gold-accent: #c5a059;
             --pure-white: #ffffff;
-            --pure-black: #000000;
-            --slate-bg: #f1f5f9;
+            --slate-bg: #f8fafc;
         }
         
-        body { background-color: var(--slate-bg); color: var(--pure-black); font-family: 'Plus Jakarta Sans', sans-serif; }
+        body { background-color: var(--slate-bg); font-family: 'Plus Jakarta Sans', sans-serif; margin: 0; }
 
-        /* Header & Logo */
+        /* HEADER: Latar Navy, Tulisan Putih */
         .header-section { 
-            background: linear-gradient(180deg, var(--dark-blue) 0%, var(--dark-blue-soft) 100%); 
-            padding: 60px 0; text-align: center; border-bottom: 6px solid var(--accent-gold);
-            position: relative; color: var(--pure-white); box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            background: linear-gradient(180deg, var(--navy-dark) 0%, var(--navy-prime) 100%); 
+            padding: 50px 0; text-align: center; border-bottom: 5px solid var(--gold-accent);
+            color: var(--pure-white); box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
-        .logo-wrapper {
-            background: white; width: 180px; height: 180px; border-radius: 50%;
-            padding: 5px; display: inline-flex; align-items: center; justify-content: center;
-            border: 4px solid var(--accent-gold); margin-bottom: 25px;
-            box-shadow: 0 0 25px rgba(0,0,0,0.2);
-            overflow: hidden; /* Memastikan logo tak keluar bulatan */
+        .logo-container {
+            background: var(--pure-white); width: 150px; height: 150px; border-radius: 50%;
+            padding: 10px; display: inline-flex; align-items: center; justify-content: center;
+            border: 3px solid var(--gold-accent); margin-bottom: 20px;
+            box-shadow: 0 0 20px rgba(197, 160, 89, 0.4);
         }
 
         .school-logo { width: 90%; height: 90%; object-fit: contain; }
 
-        h1 { font-family: 'Cinzel', serif; font-size: 2.5rem; letter-spacing: 2px; margin-bottom: 5px; color: var(--pure-white); }
-        .sub-text { color: var(--accent-gold); font-weight: 700; letter-spacing: 1px; font-size: 1.1rem; }
+        h1 { font-family: 'Cinzel', serif; font-size: 2.2rem; letter-spacing: 2px; color: var(--pure-white); }
+        .sub-text { color: var(--gold-accent); font-weight: 700; letter-spacing: 2px; }
 
-        /* Stat Cards */
+        /* STAT BOX: Latar Putih, Tulisan Navy Dark */
         .stat-box {
-            background: white; border-radius: 12px; padding: 25px; border: 1px solid #e2e8f0;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: 0.3s;
+            background: var(--pure-white); border-radius: 12px; padding: 25px; 
+            border-top: 5px solid var(--gold-accent); box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            height: 100%; transition: 0.3s;
         }
-        .stat-label { font-size: 0.8rem; font-weight: 800; color: #64748b; text-transform: uppercase; margin-bottom: 10px; }
-        .stat-value { font-size: 1.8rem; font-weight: 900; color: var(--dark-blue); }
+        .stat-label { font-size: 0.75rem; font-weight: 800; color: #64748b; text-transform: uppercase; margin-bottom: 10px; }
+        .stat-value { font-size: 1.6rem; font-weight: 900; color: var(--navy-dark); }
 
-        /* Main UI Elements */
+        /* MAIN CARD: Latar Putih, Tulisan Navy Dark */
         .main-card {
-            background: white; border-radius: 15px; padding: 30px; 
+            background: var(--pure-white); border-radius: 15px; padding: 25px; 
             box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; margin-bottom: 30px;
         }
 
         .card-title-custom {
-            font-weight: 800; color: var(--dark-blue); border-left: 6px solid var(--dark-blue);
-            padding-left: 15px; margin-bottom: 25px; font-size: 1.2rem;
+            font-weight: 800; color: var(--navy-dark); border-left: 6px solid var(--navy-dark);
+            padding-left: 15px; margin-bottom: 20px; font-size: 1.1rem;
             display: flex; justify-content: space-between; align-items: center;
         }
 
         .btn-premium {
-            background: var(--dark-blue); border: none; color: white; font-weight: 700; 
-            border-radius: 8px; padding: 15px; width: 100%; transition: 0.3s;
+            background: var(--navy-dark); border: none; color: var(--pure-white); font-weight: 700; 
+            border-radius: 8px; padding: 14px; width: 100%; transition: 0.3s;
         }
-        .btn-premium:hover { background: var(--pure-black); color: var(--accent-gold); transform: translateY(-2px); }
+        .btn-premium:hover { background: var(--gold-accent); color: var(--navy-dark); }
 
-        /* Tables */
-        .table-custom thead { background: var(--dark-blue); color: white; }
-        .table-custom tbody td { vertical-align: middle; color: var(--pure-black); font-weight: 500; }
-        .badge-pending { background: #ffe4e6; color: #b91c1c; padding: 6px 12px; border-radius: 6px; font-weight: 800; }
-        .badge-success { background: #dcfce7; color: #15803d; padding: 6px 12px; border-radius: 6px; font-weight: 800; }
+        /* TABLE HEADER: Navy Dark, Tulisan Putih */
+        .table-custom thead th { 
+            background-color: var(--navy-dark); color: var(--pure-white); 
+            padding: 15px; font-size: 0.75rem; text-transform: uppercase; border: none;
+        }
 
-        .admin-lock { position: absolute; top: 25px; right: 25px; color: var(--accent-gold); cursor: pointer; font-size: 1.6rem; }
+        /* TABLE BODY: Latar Putih, Tulisan Navy Dark */
+        .table-custom tbody td { color: var(--navy-dark); font-weight: 600; vertical-align: middle; }
+
+        .list-scroll { max-height: 400px; overflow-y: auto; border: 1px solid #f1f5f9; border-radius: 10px; }
+        
+        .badge-pending { background: #fee2e2; color: #b91c1c; padding: 5px 12px; border-radius: 6px; }
+        .badge-success { background: #dcfce7; color: #15803d; padding: 5px 12px; border-radius: 6px; }
+
+        .admin-lock { position: absolute; top: 20px; right: 20px; color: var(--gold-accent); cursor: pointer; font-size: 1.5rem; }
         .admin-only { display: none; }
-        .delete-icon { color: #dc2626; cursor: pointer; font-size: 1.1rem; }
-        .list-scroll { max-height: 500px; overflow-y: auto; border: 1px solid #f1f5f9; border-radius: 10px; }
     </style>
 </head>
 <body>
@@ -84,74 +89,68 @@
 <div class="header-section">
     <div class="admin-lock" onclick="toggleAdmin()"><i class="fas fa-lock" id="lockIcon"></i></div>
     <div class="container">
-        <div class="logo-wrapper">
-            <img src="image.jpeg" alt="Logo Sekolah" class="school-logo" onerror="this.src='https://cdn-icons-png.flaticon.com/512/5351/5351333.png';">
+        <div class="logo-container">
+            <img src="https://i.ibb.co/LzdYpXNS/image.jpg" alt="Logo Sekolah" class="school-logo">
         </div>
-        <h1>SK ST. ANNE'S <span style="color: var(--accent-gold);">CONVENT</span></h1>
-        <p class="sub-text">SISTEM PENGURUSAN SUMBANGAN & YURAN 2026</p>
+        <h1>SK ST. ANNE'S <span style="color: var(--gold-accent);">CONVENT</span></h1>
+        <p class="sub-text">SISTEM PENGURUSAN SUMBANGAN 2026</p>
     </div>
 </div>
 
 <div class="container py-5">
-    
-    <div class="row g-4 mb-5 text-center">
-        <div class="col-md-3 col-6"><div class="stat-box"><div class="stat-label">Jumlah Koleksi</div><div class="stat-value" id="totalSemasa">RM 0</div></div></div>
+    <div class="row g-3 mb-5 text-center">
+        <div class="col-md-3 col-6"><div class="stat-box"><div class="stat-label">Total Keseluruhan</div><div class="stat-value" id="totalSemasa">RM 0</div></div></div>
         <div class="col-md-3 col-6"><div class="stat-box"><div class="stat-label">PIBG (RM100)</div><div class="stat-value" id="totalPIBG">RM 0</div></div></div>
         <div class="col-md-3 col-6"><div class="stat-box"><div class="stat-label">Tambahan (RM70)</div><div class="stat-value" id="totalTambahan">RM 0</div></div></div>
-        <div class="col-md-3 col-6"><div class="stat-box"><div class="stat-label">Status Murid</div><div class="stat-value" id="countSelesai" style="font-size: 1.4rem;">0 / 0</div></div></div>
+        <div class="col-md-3 col-6"><div class="stat-box"><div class="stat-label">Status Murid</div><div class="stat-value" id="countSelesai" style="font-size: 1.3rem;">0 / 0</div></div></div>
     </div>
 
     <div class="row g-4">
         <div class="col-lg-4">
             <div class="main-card">
-                <div class="card-title-custom"><span>KEMASUKAN DATA</span></div>
+                <div class="card-title-custom">DAFTAR PEMBAYARAN</div>
                 <div class="mb-3">
-                    <label class="small fw-bold mb-1">KELAS</label>
+                    <label class="small fw-bold text-muted">KELAS</label>
                     <select id="selKelas" class="form-select"></select>
                 </div>
                 <div class="mb-3">
-                    <label class="small fw-bold mb-1">NAMA MURID</label>
+                    <label class="small fw-bold text-muted">NAMA MURID</label>
                     <select id="selNama" class="form-select"></select>
                 </div>
                 <div class="mb-4">
-                    <label class="small fw-bold mb-1">JENIS BAYARAN</label>
+                    <label class="small fw-bold text-muted">KATEGORI</label>
                     <select id="selAmaun" class="form-select">
-                        <option value="170">KOMBO (RM170)</option>
+                        <option value="170">KOMBO PENUH (RM170)</option>
                         <option value="100">PIBG SAHAJA (RM100)</option>
                         <option value="70">TAMBAHAN SAHAJA (RM70)</option>
                     </select>
                 </div>
-                <button class="btn btn-premium" id="btnSimpan"><i class="fas fa-check-circle me-2"></i>SAHKAN BAYARAN</button>
-                
-                <div class="admin-only mt-4">
-                    <button class="btn btn-outline-danger btn-sm w-100" onclick="resetSemua()">RESET SISTEM (DANGER)</button>
-                </div>
+                <button class="btn btn-premium" id="btnSimpan"><i class="fas fa-save me-2"></i>SIMPAN DATA</button>
+                <div class="admin-only mt-3"><button class="btn btn-outline-danger btn-sm w-100" onclick="resetSemua()">RESET SEMUA DATA</button></div>
             </div>
 
             <div class="main-card">
-                <div class="card-title-custom"><span>PERATUSAN</span></div>
-                <div style="height: 220px;"><canvas id="pieChart"></canvas></div>
+                <div class="card-title-custom">CARTA PRESTASI</div>
+                <div style="height: 200px;"><canvas id="pieChart"></canvas></div>
             </div>
         </div>
 
         <div class="col-lg-8">
             <div class="main-card">
                 <div class="card-title-custom">
-                    <span><i class="fas fa-receipt me-2"></i>SUDAH BAYAR</span>
-                    <button class="btn btn-sm btn-dark" onclick="downloadCSV()"><i class="fas fa-file-csv"></i> DOWNLOAD CSV</button>
+                    <span>SUDAH BAYAR (HIJAU)</span>
+                    <button class="btn btn-sm btn-dark" onclick="downloadCSV()">EXPORT CSV</button>
                 </div>
                 <div class="list-scroll">
                     <table class="table table-custom table-hover m-0">
-                        <thead><tr><th>NAMA</th><th>KELAS</th><th>AMAUN</th><th>TARIKH</th><th class="admin-only">#</th></tr></thead>
+                        <thead><tr><th>NAMA MURID</th><th>KELAS</th><th>RM</th><th class="admin-only">#</th></tr></thead>
                         <tbody id="tableSelesai"></tbody>
                     </table>
                 </div>
             </div>
 
             <div class="main-card">
-                <div class="card-title-custom">
-                    <span><i class="fas fa-user-clock me-2"></i>BELUM BAYAR</span>
-                </div>
+                <div class="card-title-custom">BELUM BAYAR (MERAH)</div>
                 <div class="list-scroll">
                     <table class="table table-custom table-hover m-0">
                         <thead><tr><th>NAMA MURID</th><th>KELAS</th><th class="text-center">STATUS</th></tr></thead>
@@ -181,19 +180,18 @@
     const db = getDatabase(app);
     const dbRef = ref(db, 'yuran_2026');
 
-    // -- DATA MURID (Contoh 1 Kelas) --
-    // Sila pastikan rawData anda lengkap di sini seperti kod sebelumnya
+    // DATA MURID
     const rawData = {
         "1 Daffodils": ["AAIRA SOPHEA BINTI HAZMEER", "AILEEN SURAIYA BINTI MUHAMMAD NURSYAHMI", "AYRA NADHIRAH BINTI ABDUL RAZAK", "DEANDRA ADELYA BINTI MOHD KAMARUL SHAHID", "DIVYA A/P KUMARAN", "FATHIMA SHAZNA BINTI MANSOOR KHAN", "IZA IZZARA BINTI IZAT IZZUDIN", "KAAVYASREE A/P SASIDARAN", "KHAYLA AFEEYA BINTI RAZMAN FAIZ", "LEYVINIAA JAHYAVIKNES SHAN", "NUR AAFIYAH BINTI MUHAMMAD HAKIIM", "NUR AALIYA ZAHRA BINTI MUHAMMAD MUIZZUDDIN", "NUR AIRIS SOFEA BINTI MOHAMAD YUHANIF", "NUR AISYAH ZAHIRAH BINTI MUHAMMAD AKMAL", "NUR AULIYA SAFFIYAH BINTI MUHAMMAD FITRIASHRAF", "NUR MARISSA BINTI MOHD FITRI", "NUR RAISHA ZAFIRAH BINTI PAHROLRAZI", "NUR ZAHIRA BINTI SYAROLRIZAL", "NUREEN MIKAYLA BINTI RUSDI AZIZ", "NURUL AMIRAH SOFIA BINTI ABDULLAH", "PUTERI BALQIS BINTI KAMALRULZAMAN", "PUTERI QAYRA AFIYA BINTI MOHD AMIRUL ANUAR", "QURRATUL UMNI HANIYYA BINTI MOHD RIDZUAN", "RAJA NELISSA BINTI RAJA HAZREN", "RAPHEALLA MOHAN", "RIZQ RUMAISA BINTI MOHD RIZAL", "RUMAISHA BINTI AB ZILJALALI WALIKRAM", "SAGISHNA A/P DINNAISH", "SHAMITA MOHAN GANES", "SITI NURHAFIZAH BINTI HELMI", "SITI SUHAILA SYAHIRAH BINTI MUHAMad SAIFULIZAM", "SOFIA NUR AISHAH BINTI MOHD ZAMRIE", "SOFIA NUR ZULAIKHA BINTI MOHD ZAMRIE", "SREESHA NAIR A/P JANATHERAN NAIR", "YUSRIENA DELISHA BINTI MOHAMAD YUSOF", "ZIA AINUL MARDHIAH BINTI MOHD ZAIM"],
-        "1 Camellia": ["AFIQAH BINTI HALIDZAN", "AL ZAHRA ROSE BINTI JEFRY", "AZZA ZINNIRAH BINTI MUHAMMAD ZARUL AZUANDI", "DHIA INARA BINTI MUHAMMAD ISHAM", "DHIA SOFEA AZZAHRA BINTI MOHD FAISAL", "DIAN SURFINA BINTI MOHD SAZALI", "HANAN INARA BINTI MOHD SHAHRIN", "HUZAIRAH FARZEEN BINTI MUHAMMAD HASHIM", "JAYASREE A/P SARAVANAN", "KAMAL EYDENE AMEENA BINTI KAMAL ARIFIN", "LENISHA A/P MUKKESH", "MALAIQA HUMAIRA BINTI ZULKIFLI", "MIA ZAREEN QHADIJAH BINTI KHAIRUL BAHARI", "NOR FARISHA NAURA BINTI MUHAMAD NOR FAKHRI", "NUR AATHIFAH MAWIYAH BINTI MOHD AZAHAR", "NUR HIDAYATUL HUSNA BINTI MUHAMMAD FIRDAUS", "NUR IMANI HUMAIRAH BINTI SHAHROL NIZAM", "NUR KHAIRIN AAFIYAH BINTI MUHAMMAD KAMAL", "NUR KHAWLAH ZINNIRAH BINTI HAIRUL RIZUAN", "NUR NAINA AMIRA AMSYAR BINTI UMAR AMSYAR SURESH", "NUR QASEH ELSABELLA BINTI ROSDI", "NUR QASIH MIKAYLA BINTI MOHD EFFENDY", "NUR RAISHA IRDINA BINTI MOHD.RIZUWAN", "NUR ZAFREENAH BINTI AHMAD", "NUR ZARRA SOFEA BINTI MOHD SAIDY", "NURUL AAFIYAH BINTI MUHAMMAD AZMI", "PUTRI NUR AISYAH ZAHRA BINTI MUHAMMAD ZUFPI", "QASEH DELISHA BINTI SYAHRIZAN", "SHAANELLE NAVYAA RAJ", "SITI AISYAH HUMAIRA BINTI MOHD HAIRY", "THIYALINI A/P THIAGU", "ZARYN AEESYA BINTI AMIR AIZAT"],
+        "1 Camellia": ["AFIQAH BINTI HALIDZAN", "AL ZAHRA ROSE BINTI JEFRY", "AZZA ZINNIRAH BINTI MUHAMMAD ZARUL AZUANDI", "DHIA INARA BINTI MUHAMMAD ISHAM", "DHIA SOFEA AZZAHRA BINTI MOHD FAISAL", "DIAN SURFINA BINTI MOHD SAZALI", "HANAN INARA BINTI MOHD SHAHRIN", "HUZAIRAH FARZEEN BINTI MUHAMMAD HASHIM", "JAYASREE A/P SARAVANAN", "KAMAL EYDENE AMEENA BINTI KAMAL ARIFIN", "LENISHA A/P MUKKESH", "MALAIQA HUMAIRA BINTI ZULKIFLI", "MIA ZAREEN QHADIJAH BINTI KHAIRUL BAHARI", "NOR FARISHA NAURA BINTI MUHAMAD NOR FAKHRI", "NUR AATHIFAH MAWIYAH BINTI MOHD AZAHAR", "NUR HIDAYATUL HUSNA BINTI MUHAMMAD FIRDAUS", "NUR IMANI HUMAIRAH BINTI SHAHROL NIZAM", "NUR KHAIRIN AAFIYAH BINTI MUHAMMAD KAMAL", "NUR KHAWLAH ZINNIRAH BINTI HAIRUL RIZUAN", "NUR NAINA AMIRA AMSYAR BINTI UMAR AMSYAR SURESH", "NUR QASEH ELSABELLA BINTI ROSDI", "NUR QASIH MIKAYLA BINTI MOHD EFFENDY", "NUR RAISHA IRDINA BINTI MOHD.RIZUWAN", "NUR ZAFREENAH BINTI AHMAD", "NUR ZARRA SOFEA BINTI MOHD SAIDY", "NURUL AAFIYAH BINTI MUHAMMAD AZMI", "PUTRI NUR AISYAH ZAHRA BINTI MUHAMMAD ZUFPI", "QASEH DELISHA BINTI SYAHRIZAN", "SHAANELLE NAVYAA RAJ", "SITI AISYAH HUMAIRA BINTI HARD", "THIYALINI A/P THIAGU", "ZARYN AEESYA BINTI AMIR AIZAT"],
         "2 Daffodils": ["AFYA NAYLA BINTI AZARIFF", "AINA QAIRINA BINTI NURQAMARUL ARIFIN", "AISYAH DAHLIA BINTI ALIF AMIRUL", "AS SHAFRINA BINTI MOHAMED SIDDIK", "DAHLIA FALISHA BINTI FAIZ IKHWAN", "DAHLIA IMANI BINTI NORHIZAD", "DAHLIA NADINE BINTI MOHD HATTA", "HANA SAFIYYAH BINTI AHMAD SAFWAN", "IRDINA NUR SYIFAA BINTI IZZUDDIN", "IZZ AIEYLA AD DHUHA BINTI MOHD IZHAM", "KEERTHISHA A/P M THANASEGAR", "NADHIFATUL SYAKIRA BINTI ZAWAWI", "NOR TRISYA ADREENA BINTI ABD KAHAR", "NUR AAIRA AFIQAH BINTI MOHD NOR AIN", "NUR AISY INARA BINTI MOHD AZMI", "NUR ATHIA BINTI MOHD SHARIZAL", "NUR ATHILA BINTI MOHD SHARIZAL", "NUR HAZIQAH SOFEA BINTI RAZIFZUL", "NUR MALAIQA ARIANA BINTI ATIB", "NUR MARYAM QAISARA BINTI MOHD RASIDI", "NUR SYIFA AQILAH BINTI MOHD SHAHRIL", "NUR UFAIRA QAIRINA BINTI NUR FAHMI NAJMI", "NUR WARDA IRDINA BINTI MOHD ZAMRI", "NURIN SAFIYA BINTI AZWAN", "PIRUNTHASRI A/P NILALKUMAR", "PRATIYANGIRA DEVI A/P NAGENDRA", "PUTERI AISYAH ZAARA BINTI MADZAMRI", "PUTRY NUR INSYIRAH BINTI IZHAR SHAH", "PUTRY NURAIRYSH BINTI IDZRY SHAH", "QASEH NUR HUMAIRA BINTI MOHD ADLISAFIE", "RAISHA MIQAYLA BINTI MUHAMMAD ISMAIL", "RHEEYA LAXMI STEVEN", "RIMASHINI A/P MOHAN RAO", "SUFI IRDINA BINTI MOHD SHAH RIZAN", "TRISHIKA A/P LOGESWARAN", "VENUSHKA RAJ A/P DARSHAN RAJ", "YARSHANA A/P SASIDERAN", "ZAHRA BINTI ABBAS"],
-        "2 Camellia": ["ADRIANA AISHAH BINTI MOHD NAZMAN", "ALEESYA SAFIYYA BINTI MUHAMMAD HANIF", "AMANDA SOFIA BINTI RADI", "ANUSHKA A/P JEYASILAN", "DHIA ARISSA BINTI DILLI BAHADUR", "GABRIELLA A/P NYANASELVAM", "GEETHASREE ALVINA A/P NANTHAKUMARAN", "KAVINASHREE", "MUFIDAH ARIANA SYAFIAH BINTI ZAMBRIN", "NAVINA A/P JEMS KUMAR", "NAZNIN PARVEEN BINTI MOHD ASYRAF", "NAZURAH BINTI MUHAMAD NIZAM", "NUR AFIYYA JANNAH BINTI HAMRAN", "NUR AIFA SOFIA BINTI AINUL HAKKI", "NUR ARIANA DELISHA BINTI ABDUL JABBAR", "NUR ASHEEQA QIRANI BINTI BADRUL HISAM", "NUR AULIYA HANNAH BINTI MUHAMMAD HAFIZ", "NUR AYRA SOFIA BINTI MOHD RIDHWAN", "NUR IMAN AISYAH BINTI SHAHROL NIZAM", "NUR KHAYYIRA AURORA BINTI MOHAMMAD KHALID", "NUR NAURA AULIA BINTI NORazWAN", "NUR SHAHREFAH NORAZLEEN BINTI AHMAD SHAHRAN", "NUR YASMEEN HUMAIRA BINTI YAARIF", "NURALISHA KHAIRA WILDA BINTI DARMAJIN", "NURin AFRINA BINTI MOHD HAFIDY", "NUUR ALISHA QAISARA BINTI MOHAMAD AZIZI", "PUTERI NUR RAFIEKA NATRISYAH BINTI MUHAMMAD RAFEI", "PUTRI ARIANA QAISARA BINTI MOHD NORAZWAN", "TANUSHRIEE A/P SASI KUMAR", "THANYASRI A/P TAMILARASU", "THIYASHINI A/P THIAGU", "WAN NURZEHRA SOPHIA BINTI WAN MUHAMAD FARIS AIMAN", "YAALINIE SIVASANGARAN", "YASHARA DIVENDRAN", "YAYSHWITHA A/P NANTHAKUMAR", "ZARA MEDINA BINTI MOHAMAD HAFIZ"],
+        "2 Camellia": ["ADRIANA AISHAH BINTI MOHD NAZMAN", "ALEESYA SAFIYYA BINTI MUHAMMAD HANIF", "AMANDA SOFIA BINTI RADI", "ANUSHKA A/P JEYASILAN", "DHIA ARISSA BINTI DILLI BAHADUR", "GABRIELLA A/P NYANASELVAM", "GEETHASREE ALVINA A/P NANTHAKUMARAN", "KAVINASHREE", "MUFIDAH ARIANA SYAFIAH BINTI ZAMBRIN", "NAVINA A/P JEMS KUMAR", "NAZNIN PARVEEN BINTI MOHD ASYRAF", "NAZURAH BINTI MUHAMAD NIZAM", "NUR AFIYYA JANNAH BINTI HAMRAN", "NUR AIFA SOFIA BINTI AINUL HAKKI", "NUR ARIANA DELISHA BINTI ABDUL JABBAR", "NUR ASHEEQA QIRANI BINTI BADRUL HISAM", "NUR AULIYA HANNAH BINTI MUHAMMAD HAFIZ", "NUR AYRA SOFIA BINTI MOHD RIDHWAN", "NUR IMAN AISYAH BINTI SHAHROL NIZAM", "NUR KHAYYYIRA AURORA BINTI MOHAMMAD KHALID", "NUR NAURA AULIA BINTI NORazWAN", "NUR SHAHREFAH NORAZLEEN BINTI AHMAD SHAHRAN", "NUR YASMEEN HUMAIRA BINTI YAARIF", "NURALISHA KHAIRA WILDA BINTI DARMAJIN", "NURin AFRINA BINTI MOHD HAFIDY", "NUUR ALISHA QAISARA BINTI MOHAMAD AZIZI", "PUTERI NUR RAFIEKA NATRISYAH BINTI MUHAMMAD RAFEI", "PUTRI ARIANA QAISARA BINTI MOHD NORAZWAN", "TANUSHRIEE A/P SASI KUMAR", "THANYASRI A/P TAMILARASU", "THIYASHINI A/P THIAGU", "WAN NURZEHRA SOPHIA BINTI WAN MUHAMAD FARIS AIMAN", "YAALINIE SIVASANGARAN", "YASHARA DIVENDRAN", "YAYSHWITHA A/P NANTHAKUMAR", "ZARA MEDINA BINTI MOHAMAD HAFIZ"],
         "3 Daffodils": ["ADRIANA RIZQ IMAN BINTI MUHAMMAD FADZLI", "ALAYNA SUHARA BINTI AZDLI", "AMANDA BINTI MISDIN", "ARYSSA SUMAYYAH BINTI SAIFUL AKMAR", "BALQIS SHAKIRA BINTI ZULKIFLI", "DELISHA UZMA BINTI HARD", "DHIYA AN-NISAA BINTI MOHD AZIZUL", "EMBUN MARYAM BINTI AHMAD ASHRAF", "EMINA AWATIF BINTI MOHAMMAD AFIFI", "HANI AREESHA BINTI ADDI NUL HANIF", "HANIS MARISSA BINTI MOHD NAJIB", "MARSYA ANIS SOFEA BINTI NOOR AZIZI", "NAURAH BAHEERAH BINTI ABDULLAH AHMAD", "NUR AFIFA ALYA BINTI MOHAMAD AFIF SHUKRY", "NUR AFINA AULIYA BINTI MUHAMMAD FITRIASHRAF", "NUR ALISHA AZ ZAHRA BINTI ANUAR", "NUR ANGGUN HAFIESYA BINTI ABDUL HAFIZ", "NUR ARISSA RANIA BINTI MD FADHIR", "NUR ATIQAH BINTI MAT ZAHID", "NUR DEEBA MAYESA BINTI MOHD HASRUL ASWAN", "NUR IFFAT HAMANI BINTI MUHAMAD ZULHILMI", "NUR JANNAH BINTI NAZARUDDIN", "NUR KHALISH IMANI BINTI MOHD AIZUDDIN", "NUR KHAYLA MEDINA BINTI IKMAL REZA", "NUR MIKAYLA AZZALEA BINTI MOHD AZLAN", "NUR NAURAH AAISYAH BINTI MUHAMMAD AZUAN", "NUR QURRA'AISYA QHARIERAH BINTI KHAIRUL ADLI", "PUTERI SAFYA EL ZEHRAA BINTI SHAIFUL RIZAL", "PUTRI NAEERA ELVINA BINTI HIDHIR SUFFI", "QISYA BATRISYA BINTI SIDI OMAR ALFOADI", "SABURAH RIFAH BINTI AHAMED BASHEER", "SHIVAANIE NAIDU A/P JANAGANRAJ", "SUHASINI A/P HARI KRISHANAN", "WAN SHAHEERA BINTI YUZA"],
-        "3 Camellia": ["AAIRA QAISARA BINTI NURQAMARUL ARIFIN", "AFRINA DANIA BINTI ABDUL MAJEED", "AINA SHAFIYYA BINTI MUHAMMAD HAFIZ", "ALESHA ZAHRA BINTI AHMAD FAZLI", "ALTHEA KHAYLA BINTI AZUANKEFLY", "ANGGUN KHADEEJA BINTI MOHAMAD AIZUDDIN", "ANUSHAY DEVI A/P KESEVAN", "AS SHIFANA BINTI MOHAMED SIDDIK", "ASHURA HUMAIRA BINTI MOHAMAD MAHATHIR", "DHARSHANAH A/P RAJASUNDRAM", "FAITH ASHLEY TAN YONG SHI HUI", "JIVIKA A/P MANOGARAN", "KRISSIA SRIKAA A/P SRITHARAN", "LENISYHAA A/P SAKTHI VICKNESWARAN", "MUVITRA BINTI ABDUL RAHMAN", "NASYIFA AZ ZAHRA BINTI NASRUDDIN", "NUR ALEESYA NABIHA BINTI ABD RAZAK", "NUR AMINAH BINTI ABD HALIM", "NUR ANDHARA HUDA BINTI ZAINUDDIN", "NUR AWFIYAH MAWADDAH BINTI MOHD AZAHAR", "NUR AWLIYA SOLEHAH BINTI MOHD AIZULHAR", "NUR AYRA MARISSA BINTI NORMAN", "NUR HANIS NADEERA BINTI MUHAMAD NAZRULL HAFIZZY", "NUR RANIAH RAISHA BINTI MUHAMMAD RAFIQ", "NUR ZAHIYA EDINA BINTI MOHD NOOR", "NURRAISHA MIKAYLA BINTI MOHD MUZAFAR", "PUTERI RAISHA MARISSA BINTI AMY AZNAQUIDDIN", "RINETRAA JAYABALAN", "RIZQ ALEESHA ARIANA BINTI MUHAMMAD FADHLULLAH ILMAN", "ROSHINI A/P VIVEGANANDAM", "SARA AURORA BINTI AHMAD RAIZ RAMZI", "SAYANTIKA A/P KUMANAN", "SITI NUR QALESYA BINTI MOHD HAIDI", "TAASHMETHA A/P THEVENDRAN", "THARANE A/P SIVASANGARAN"],
+        "3 Camellia": ["AAIRA QAISARA BINTI NURQAMARUL ARIFIN", "AFRINA DANIA BINTI ABDUL MAJEED", "AINA SHAFIYYA BINTI MUHAMMAD HAFIZ", "ALESHA ZAHRA BINTI AHMAD FAZLI", "ALTHEA KHAYLA BINTI AZUANKEFLY", "ANGGUN KHADEEJA BINTI MOHAD AIZUDDIN", "ANUSHAY DEVI A/P KESEVAN", "AS SHIFANA BINTI MOHAMED SIDDIK", "ASHURA HUMAIRA BINTI MOHAMAD MAHATHIR", "DHARSHANAH A/P RAJASUNDRAM", "FAITH ASHLEY TAN YONG SHI HUI", "JIVIKA A/P MANOGARAN", "KRISSIA SRIKAA A/P SRITHARAN", "LENISYHAA A/P SAKTHI VICKNESWARAN", "MUVITRA BINTI ABDUL RAHMAN", "NASYIFA AZ ZAHRA BINTI NASRUDDIN", "NUR ALEESYA NABIHA BINTI ABD RAZAK", "NUR AMINAH BINTI ABD HALIM", "NUR ANDHARA HUDA BINTI ZAINUDDIN", "NUR AWFIYAH MAWADDAH BINTI MOHD AZAHAR", "NUR AWLIYA SOLEHAH BINTI MOHD AIZULHAR", "NUR AYRA MARISSA BINTI NORMAN", "NUR HANIS NADEERA BINTI MUHAMAD NAZRULL HAFIZZY", "NUR RANIAH RAISHA BINTI MUHAMMAD RAFIQ", "NUR ZAHIYA EDINA BINTI MOHD NOOR", "NURRAISHA MIKAYLA BINTI MOHD MUZAFAR", "PUTERI RAISHA MARISSA BINTI AMY AZNAQUIDDIN", "RINETRAA JAYABALAN", "RIZQ ALEESHA ARIANA BINTI MUHAMMAD FADHLULLAH ILMAN", "ROSHINI A/P VIVEGANANDAM", "SARA AURORA BINTI AHMAD RAIZ RAMZI", "SAYANTIKA A/P KUMANAN", "SITI NUR QALESYA BINTI MOHD HAIDI", "TAASHMETHA A/P THEVENDRAN", "THARANE A/P SIVASANGARAN"],
         "4 Daffodils": ["AAIRA NUR ISYAH BINTI MOHD FAUZAN", "AISYAH ZAHRA BINTI AZARIFF", "AUNI NUHA BINTI AHMAD HUMAIZI", "AYESSHA ENARA BINTI MOHAMED RASHID", "FRANCESCA DOFA ANAK FARAYRA", "HAANUUSHREJI A/P JIVA NANTHAN", "HAVINA A/P DEVA KUMAR", "IRDINA RAISYAH BINTI RASHIDI", "MAHIRAH ZARIN IRDINA BINTI FARIS", "NILSHIKKHA A/P PREM KUMAR", "NISA AILANI BINTI MOHD SUHAIMI", "NOR TRISYA AMMARA BINTI ABD KAHAR", "NUR AMANI BINTI MOHAMED ZAKRI", "NUR IFTITAH SAFIYYAH BINTI MOHAMAD NAJID", "NUR MEDINA BINTI ABDUL RASID", "NUR RAESHA ZAHIRA BINTI NOOR HARFIZ", "ORKED NUR IMANI BINTI MOHD KHAIRUL NIZAM", "PRETYY A/P VIJAYABHASKAR", "PUTRY NUR AISHAH BINTI IDZRY SHAH", "QASEH MEDINA BINTI ZULFARKA", "RAIHANAH BINTI AB ZILJALALI WALIKRAM", "RIZQ ZARA ARISSA BINTI MUHAMMAD FADHLULLAH ILMAN", "SASHMIKA MOHAN GANES", "SITI KHADIJAH BINTI MOHAMAD KHAMIS", "SUFI INARA BINTI MOHD SHAH RIZAN", "WAN NUR AIFA ELLYSYA BINTI WAN MUNZIR", "WAN SHAKIRA BINTI YUZA", "YONISHAA A/P NILALKUMAR", "ZARIN AMANDA BINTI ZAIRUL SAFRI"],
         "4 Camellia": ["ADELIA QAISARAH BINTI AZDLI", "AINUR ZARA AQEELA BINTI MOHD FAIZAL", "IZZ AIEYRA UQASHA BINTI MOHD IZHAM", "KAUSALYA A/P BALU", "NIK IZZSARA XIANDRA BINTI INDRA KASUMA", "NUR ADRA JAUZA BINTI MUHAMAD AZAHAR", "NUR AINA ZHAFARINA BINTI SARIZAN", "NUR ALYA HANA BINTI RIZAN", "NUR AQEELA NASHWA BINTI RIZUAN", "NUR AQILAH FALISHA BINTI SHAHNIZAM", "NUR ARDINI ZAHIRAH BINTI MAZNAN", "NUR ARYANNA BINTI ABDUL LATIF", "NUR FIRYAL NUZAEYRA BINTI NASROL AZRIN", "NUR HAZIRAH NADIA BINTI RAZIFZUL", "NUR ILFA MEDINA BINTI MUHAMMAD SUHAIMI", "NUR IZZARA NATASYAH BINTI MATNOH", "NUR RANIA AZZAHRA BINTI FIRDAUS", "NUR RANIA HUMAYRAA BINTI MOHD.RIZUWAN", "NUR SAFRINA BINTI KAHAR", "NURin ARISSA BINTI MOHD HAFIDY", "PAYRESHA SAKTI MANI A/P NURESH MANI", "PHUWANEYSHWARY A/P KRISHNAN", "QAISARA HUMAIRA BINTI MOHAMAD AZRIN", "SHAMIRAH NATASHAH BINTI KHAIRUL NIZAM RAJU", "SITI HAWA ZULEYKHA BINTI MUHAMMAD FIRDAUS", "SITI NUR MAISARAH BINTI MOHD HAIDI", "VYSHNAVI A/P KULASINGGAM", "WAN NURKHAYSHA LUTHFIA BINTI WAN MUHAMAD FARIS AIMAN", "ZIA ARISHA IRDEENA BINTI MOHD ZAIM"],
         "5 Daffodils": ["AFRAH NASUHA BINTI MUHAMMAD AZAM", "AISYAH QYRA BINTI MUHAMMAD ZAKI", "ANEESA SHAKIRA BINTI SUHAIZAM", "AYRAA SOFEA BINTI SAIFUL AKMAR", "HINDRAKSHI A/P SARAVANA KUMAR", "HUMAIRA KHADIJAH BINTI NAZARUDDIN", "MAI ADWA INSYIRAH BINTI MEOR SYAHRIN EDZUAN", "NEEHARIKHA A/P SRI RAMULU", "NOORUL HUMAIRA BINTI SYED IBRAHIM", "NUR AISYAH MEDINA BINTI MOHD AZMIZAN", "NUR ALESYA NUHAA BINTI MOHD FAIRUS", "NUR ARISSA SOFIA BINTI MD FADHIR", "NUR AZMEERA ALEESHAH BINTI AZMAN SHAH", "NUR EISYA ERINA BINTI MOHD SAHARUDDIN", "NUR FAIQAH HUMAIRA BINTI MOHD SYAIFUL AMIN", "NUR IRDINA SOLEHAH BINTI MOHD AIZULHAR", "NUR NADIA ERYNA BINTI MUHAMMAD AZUAN", "NUR QASRINA RASYIQAH BINTI MOHAMAD AZHAR", "NUR SYARAFANA ERYNA BINTI MUHAMAD FHATHI", "NURin AFINA BINTI AZWAN", "NURUL ZAHIRAH BINTI MOHD SHAH RITHAUDIN", "PUTRI LUTHFIAH SYAUQINA BINTI MOHD SYAFIQ", "QAISARA ISABELLBINTI MOHD FAROZ", "QASEH NURINSYIRAH BINTI MOHAMMAD ZAMRI", "QAYRA ZHAFEERA BINTI MOHD HAFIZ", "RANIA RAISHA BINTI MOHD AZMI", "RONA KESUMA BINTI MOHD NURRUL FAIZ", "SHERINA SMERA SAIMAN", "SINDUJA A/P VIKNESWARAN", "SYAZLIN NUR KHUZAIRA BINTI AHMAD KHUZAIME", "TANUSHA A/P PARAMESWARAN", "WISYAH AFIFA FITIYA BINTI MOHAMAD ZAKI", "YASHMIETRRA A/P KUMARASEELAN", "YUSRINA RIN NOHARA BT MOHD RIDZUAN"],
-        "5 Camellia": ["ADELLIA NUR JASMINE BINTI SUHAIMI", "ANGELINA A/P NYANASELVAM", "ARLISSA NUR RAMADHANIA BINTI ARIS SHAFUDEEN", "DHANUSRI A/P MOHANESWARAN", "DHIA QAISARA BINTI MAZLAN", "DINI NUHA ZAHRA BINTI ZAHRUL", "ELLYDHIA BINTI AZMAN", "HARSHINEE A/P SANJIS", "KEVINA THEVAMANE A/P PRASATH", "MEDINA IZZ WANI BINTI MOHD FAIDSAL", "NAALINAH A/P JEYASEELAN", "NAURAH NURJANNAH BINTI ROSDI", "NOR IRDINA SYAKIRAH BINTI MOHD SAMSUL", "NUR ALYSSA ZAHIRA LIM BINTI NAZRUL AZWAT LIM", "NUR AMANI DAMIA BINTI MOHD HILMAN", "NUR AUNI BATRISYIA BINTI MOHD HAZARUL FAIROL", "NUR DHIA QARISSA BINTI NORHISAM", "NUR HANA HUMAIRA BINTI MOHD NAZRI", "NUR HANIFAH IMANI BINTI MUHAMAD HAFIZY", "NUR JASMIN RANIA BINTI MOHD YAACOB", "NUR QURRATU'AIN QHALIESYAH BINTI KHAIRUL ADLI", "NUR RAMADHANIAH BINTI ISHAK SAH", "NUR SAFFIYA QAISARA BINTI ABDUL LATIF", "NUR SYAZIA AZZAHRAH BINTI MOHD AZMAN", "NURUL AQILAH BINTI MOHD NAHRHOWI", "PUTERI NOR DHIYA QAISARA BINTI MAZLAN", "PUTERI NUR SUMAYYAH BINTI MOHAMAD NAZRUL", "PUTRI ARIQA INSYIRA BINTI MOHD ISYULAHI", "PUTRI NUR ARIANA ZAFINA BINTI MUHAMMAD ZUFPI", "SHAALINI A/P SELVAKUMAR", "SITI NUR JANNAH BINTI MOHD HAIDI", "SUDHISHKA A/P RENGANATHAN", "TUAN NURQAIREEN AISYAH BINTI KHAIROL IZHAR", "TUSHAARA A/P YOGESWARAN", "UMI NUR SYAFIYAH BINTI MOHAMMAD AFFANDI"],
+        "5 Camellia": ["ADELLIA NUR JASMINE BINTI SUHAIMI", "ANGELINA A/P NYANASELVAM", "ARLISSA NUR RAMADHANIA BINTI ARIS SHAFUDEEN", "DHANUSRI A/P MOHANESWARAN", "DHIA QAISARA BINTI MAZLAN", "DINI NUHA ZAHRA BINTI ZAHRUL", "ELLYDHIA BINTI AZMAN", "HARSHINEE A/P SANJIS", "KEVINA THEVAMANE A/P PRASATH", "MEDINA IZZ WANI BINTI MOHD FAIDSAL", "NAALINAH A/P JEYASEELAN", "NAURAH NURJANNAH BINTI ROSDI", "NOR IRDINA SYAKIRAH BINTI MOHD SAMSUL", "NUR ALYSSA ZAHIRA LIM BINTI NAZRUL AZWAT LIM", "NUR AMANI DAMIA BINTI MOHD HILMAN", "NUR AUNI BATRISYIA BINTI MOHD HAZARUL FAIROL", "NUR DHIA QARISSA BINTI NORHISAM", "NUR HANA HUMAIRA BINTI MOHD NAZRI", "NUR HANIFAH IMANI BINTI MUHAMAD HAFIZY", "NUR JASMIN RANIA BINTI MOHD YAACOB", "NUR QURRATU'AIN QHALIESYAH BINTI KHAIRUL ADLI", "NUR RAMADHANIAH BINTI ISHAK SAH", "NUR SAFFIYA QAISARA BINTI ABDUL LATIF", "NUR SYAZIA AZZAHRAH BINTI MOHD AZMAN", "NURUL AQILAH BINTI MOHD NAHRHOWI", "PUTERI NOR DHIYA QAISARA BINTI MAZLAN", "PUTERI NUR SUMAYYAH BINTI MOHAMAD NAZRUL", "PUTERI ARIQA INSYIRA BINTI MOHD ISYULAHI", "PUTRI NUR ARIANA ZAFINA BINTI MUHAMMAD ZUFPI", "SHAALINI A/P SELVAKUMAR", "SITI NUR JANNAH BINTI MOHD HAIDI", "SUDHISHKA A/P RENGANATHAN", "TUAN NURQAIREEN AISYAH BINTI KHAIROL IZHAR", "TUSHAARA A/P YOGESWARAN", "UMI NUR SYAFIYAH BINTI MOHAMMAD AFFANDI"],
         "6 Daffodils": ["AISHA FATIMA BINTI MOHD FAIZAL", "ALIYA ADRIANA BINTI MOHD ARIF", "ALYA NADHIRAH BINTI ABDUL RAZAK", "AYRA SAFIYYAH BINTI HARD", "HAFIZAH BINTI AZMI", "HAIFAA FAIQAH BINTI MUHAMMAD HASHIM", "HANNAH SAFIYYAH BINTI RAZMAN FAIZ", "HASYA MAISARAH BINTI MOHD NAJIB", "HAYAA YUMNA BINTI MUHAMAD HAMDI", "KAITLYNN LEYLA BINTI AHMAD FUAD HILMI", "KAVEESHA A/P ROBINSON SIVAN", "MAI AZZALEYA HUSNA BINTI MEOR SYAHRIN EDZUAN", "NETRASRI A/P SRI BALA SUBRAMANIAM", "NOORUL AZRAH BINTI THAMIMUL ANSARI", "NUR AAFIA AZWA SAFRINA BINTI MOHD AZLAN", "NUR AIN QALISHA BINTI MOHD NAZMUDDIN", "NUR IZZATI BINTI MAT ZAHID", "NUR KHAIRINA ARISSA BINTI MOHD KHALEL", "NUR QIESHA IRDINA BINTI MOHD AIZUDDIN", "NUR YASMIN MARISSA BINTI MOHAMMAD FAFIZ", "NUR ZARRA DARWISYA BINTI MOHD SAIDY", "NURDINA INSYIRAH BINTI MOHAMAD HAFIZI", "NURin ARIANA BINTI MOHD HAFIDY", "NURLAYLA RAISHA BINTI MOHAMAD RADZI", "NURLISA IMANINA BINTI MOHAMAD ZAINI", "PUTERI NATASYA BINTI HIDZUAN", "PUTERI SYAHRIFA SYAHWANA BINTI HASBOLLAH", "QASEH UMAYRA BINTI ZULFARKA", "RATHAA A/P SATHIAMURTHI", "SAADHANA SHREE A/P RAJASEGARAN", "SITI FARAHUSNA BINTI MOHD KHALID", "TANISKA A/P SARAVANAN", "THARSHAINEY A/P SIVAM", "UMMUL SUBUHATH SHAMIHA BINTI ZULQARNAIN", "WAN NURAINA HANNANI BINTI WAN MUHAMMAD RAHIMI"],
         "6 Camellia": ["ANUSREE A/P NAVANITHAN", "DAKSHAYANI A/P KANAPATHY", "DAMIA QADYRA BINTI ROZLAN", "DESNA A/P DASS", "EAVANAYSA A/P V.DEVANTHIRAN", "GAYATHRI DORAISINGAM", "INARAH QASRINA BINTI MOHD ANDRIAN", "MASROTUL SUFEYA BT MOHD RIDUAN", "NOR ADELIA MARDHIYAH BINTI MOHD AZAHAR", "NOR RAFIDAH BINTI ABD.RAHIM", "NUR ADRIANA SAFFIYA BINTI NUR HAEYRY", "NUR AAIN MIM BINTI SHAMIM HOSSSAIN MUKLES", "NUR AISY ARISSA BINTI KUZAIRI HEZRI", "NUR ALEESYA SOFEA BINTI NOORADZLAN", "NUR ALISYA AMANDA BT MOHD HARMIZY", "NUR AUNI MAISARAH BINTI NORMAN", "NUR DAMIA QATRUNNADA BINTI AHMAD SUYUTI", "NUR EISHAL HUMAIRA BINTI MOHD FAISAL", "NUR JANNAH HUMAIRA BINTI MOHD IZUAN", "NUR SYAFIRA BINTI UJANG", "NUR SYAKIRA ZULAIQHA BINTI BADRUL HISAM", "NURNAILAHNAJWA BINTI NAZRI", "NURUL DAMIA BT ZULKARNAIN", "OVIYA A/P SELVARAJOO", "PUTRI QISTINA BATRISYA BINTI ASWADI", "PUTRI YASMEEN MAISARA BINTI HIDHIR SUFFI", "QALISYA NUR' JANNAH BINTI RAMIZAL", "QASEH RANIA BINTI ZAFRULNIZAM", "RAYHANNA DAYANA BINTI MD RAZALI", "SITI NUR SAFINA BINTI SEIKH OMAR", "SUJEETHAJI A/P JIVA NANTHAN", "VENOLINA JASON RAJ", "YOGALAXSHME A/P DASS"]
     };
@@ -203,16 +201,18 @@
     const selK = document.getElementById('selKelas');
     const selN = document.getElementById('selNama');
 
-    selK.innerHTML = '<option value="">-- KELAS --</option>';
+    selK.innerHTML = '<option value="">-- PILIH KELAS --</option>';
     Object.keys(rawData).forEach(k => selK.innerHTML += `<option value="${k}">${k}</option>`);
 
     selK.onchange = () => {
         selN.innerHTML = '<option value="">-- PILIH NAMA --</option>';
-        if(rawData[selK.value]) rawData[selK.value].sort().forEach(n => selN.innerHTML += `<option value="${n}">${n}</option>`);
+        if(rawData[selK.value]) {
+            rawData[selK.value].sort().forEach(n => selN.innerHTML += `<option value="${n}">${n}</option>`);
+        }
     };
 
     window.toggleAdmin = () => {
-        const pw = prompt("Password Admin:");
+        const pw = prompt("Sila Masukkan Password Admin:");
         if(pw === "admin123") {
             isAdmin = !isAdmin;
             document.querySelectorAll('.admin-only').forEach(el => el.style.display = isAdmin ? 'table-cell' : 'none');
@@ -221,8 +221,8 @@
         }
     };
 
-    window.padamRekod = (key) => { if(confirm("Hapus data?")) remove(ref(db, `yuran_2026/${key}`)); };
-    window.resetSemua = () => { if(confirm("Padam SEMUA data?")) remove(dbRef); };
+    window.padamRekod = (key) => { if(confirm("Padam rekod ini?")) remove(ref(db, `yuran_2026/${key}`)); };
+    window.resetSemua = () => { if(confirm("PERHATIAN: Padam SEMUA data sekarang?")) remove(dbRef); };
 
     document.getElementById('btnSimpan').onclick = () => {
         if(!selN.value) return alert("Pilih Nama!");
@@ -232,7 +232,7 @@
             amaun: parseInt(document.getElementById('selAmaun').value),
             tarikh: new Date().toLocaleDateString('ms-MY')
         });
-        alert("Data Disimpan!");
+        alert("Berjaya Disimpan!");
     };
 
     function renderData() {
@@ -241,31 +241,34 @@
             const tableS = document.getElementById('tableSelesai');
             const tableB = document.getElementById('tableBelum');
             tableS.innerHTML = ''; tableB.innerHTML = '';
+            
             let tKoleksi = 0, tPIBG = 0, tTambahan = 0, countS = 0;
-            let paidSet = new Set();
+            let paidNames = new Set();
 
+            // Loop Data Sudah Bayar
             Object.entries(val).forEach(([key, r]) => {
                 tKoleksi += r.amaun;
                 if(r.amaun === 100 || r.amaun === 170) tPIBG += 100;
                 if(r.amaun === 70 || r.amaun === 170) tTambahan += 70;
-                paidSet.add(r.nama); countS++;
+                paidNames.add(r.nama); countS++;
                 tableS.innerHTML += `<tr><td>${r.nama}</td><td>${r.kelas}</td><td><span class="badge-success">RM${r.amaun}</span></td><td>${r.tarikh}</td>
                     <td class="admin-only" style="display:${isAdmin?'table-cell':'none'}"><i class="fas fa-trash delete-icon" onclick="padamRekod('${key}')"></i></td></tr>`;
             });
 
-            let totalMurid = 0;
-            Object.entries(rawData).forEach(([kelas, senarai]) => {
-                senarai.forEach(m => {
-                    totalMurid++;
-                    if(!paidSet.has(m)) tableB.innerHTML += `<tr><td>${m}</td><td>${kelas}</td><td class="text-center"><span class="badge-pending">BELUM</span></td></tr>`;
+            // Loop Data Belum Bayar
+            let totalM = 0;
+            Object.entries(rawData).forEach(([kelas, list]) => {
+                list.forEach(m => {
+                    totalM++;
+                    if(!paidNames.has(m)) tableB.innerHTML += `<tr><td>${m}</td><td>${kelas}</td><td class="text-center"><span class="badge-pending">PENDING</span></td></tr>`;
                 });
             });
 
             document.getElementById('totalSemasa').innerText = `RM ${tKoleksi}`;
             document.getElementById('totalPIBG').innerText = `RM ${tPIBG}`;
             document.getElementById('totalTambahan').innerText = `RM ${tTambahan}`;
-            document.getElementById('countSelesai').innerText = `${countS} / ${totalMurid}`;
-            updateChart(countS, totalMurid - countS);
+            document.getElementById('countSelesai').innerText = `${countS} / ${totalM}`;
+            updateChart(countS, totalM - countS);
         });
     }
 
@@ -273,7 +276,7 @@
         if(pieChart) pieChart.destroy();
         pieChart = new Chart(document.getElementById('pieChart'), {
             type: 'doughnut',
-            data: { labels: ['Selesai', 'Belum'], datasets: [{ data: [s, b], backgroundColor: ['#15803d', '#b91c1c'], borderWidth: 0 }] },
+            data: { labels: ['Selesai', 'Belum'], datasets: [{ data: [s, b], backgroundColor: ['#16a34a', '#e11d48'], borderWidth: 0 }] },
             options: { cutout: '75%', maintainAspectRatio: false }
         });
     }
@@ -284,7 +287,7 @@
             Object.values(snap.val() || {}).forEach(r => csv += `"${r.nama}","${r.kelas}",${r.amaun},${r.tarikh}\n`);
             const a = document.createElement('a');
             a.href = URL.createObjectURL(new Blob([csv], {type:'text/csv'}));
-            a.download = 'Laporan_SK_St_Annes.csv'; a.click();
+            a.download = 'Laporan_SK_St_Annes_2026.csv'; a.click();
         }, {onlyOnce: true});
     };
 
