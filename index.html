@@ -14,116 +14,172 @@
             --royal-blue: #0f172a;
             --premium-blue: #1e3a8a;
             --accent-gold: #fbbf24;
-            --slate-bg: #f8fafc;
+            --glass-white: rgba(255, 255, 255, 0.95);
         }
         
-        body { background-color: var(--slate-bg); font-family: 'Plus Jakarta Sans', sans-serif; color: var(--royal-blue); }
+        body { background-color: #f1f5f9; font-family: 'Plus Jakarta Sans', sans-serif; color: var(--royal-blue); }
 
+        /* Header & Logo */
         .header-section { 
-            background: radial-gradient(circle at 50% 0%, #1e40af 0%, #0f172a 100%); 
-            padding: 50px 0 80px; text-align: center; color: white; position: relative;
-            border-bottom: 4px solid var(--accent-gold);
+            background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%); 
+            padding: 60px 0 100px; text-align: center; color: white; position: relative;
+            border-bottom: 5px solid var(--accent-gold);
         }
 
-        .logo-container {
-            background: white; width: 110px; height: 110px; border-radius: 25px;
-            padding: 10px; display: inline-flex; align-items: center; justify-content: center;
-            margin-bottom: 15px; box-shadow: 0 15px 35px rgba(0,0,0,0.4); border: 3px solid var(--accent-gold);
+        .school-logo {
+            width: 130px; height: auto;
+            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.3));
+            margin-bottom: 15px;
         }
 
+        /* Cantikkan Box Total (Stat-Cards) */
         .stat-card {
-            background: white; border-radius: 20px; padding: 20px; 
-            border: 1px solid #e2e8f0; box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-            height: 100%; transition: 0.3s;
+            background: white; 
+            border-radius: 24px; 
+            padding: 25px 20px; 
+            border: 1px solid rgba(251, 191, 36, 0.3); 
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+            position: relative; overflow: hidden;
+            transition: transform 0.3s ease;
         }
-        .stat-label { font-size: 0.7rem; font-weight: 700; color: #64748b; text-transform: uppercase; }
-        .stat-value { font-size: 1.5rem; font-weight: 800; color: var(--royal-blue); }
+        .stat-card:hover { transform: translateY(-5px); }
+        .stat-card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 6px; height: 100%;
+            background: var(--accent-gold);
+        }
+        .stat-icon {
+            position: absolute; right: -10px; bottom: -10px;
+            font-size: 4rem; color: rgba(251, 191, 36, 0.1);
+            transform: rotate(-15deg);
+        }
+        .stat-label { font-size: 0.75rem; font-weight: 800; color: #64748b; text-transform: uppercase; letter-spacing: 1px; }
+        .stat-value { font-size: 1.7rem; font-weight: 900; color: var(--royal-blue); margin-top: 5px; }
 
-        .main-content { margin-top: -50px; }
+        .main-content { margin-top: -60px; position: relative; z-index: 10; }
 
         .premium-card {
-            background: white; border-radius: 20px; padding: 25px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.08); border: none; margin-bottom: 25px;
+            background: var(--glass-white); border-radius: 24px; padding: 30px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.1); border: 1px solid rgba(255,255,255,0.3);
+            margin-bottom: 30px; backdrop-filter: blur(10px);
         }
 
-        .scroll-area { max-height: 450px; overflow-y: auto; border-radius: 12px; border: 1px solid #f1f5f9; }
-
-        .table-premium th { background: var(--royal-blue); color: white; font-size: 0.7rem; text-transform: uppercase; padding: 15px; sticky: top; }
-        .table-premium td { padding: 12px 15px; font-size: 0.85rem; border-bottom: 1px solid #f1f5f9; }
-
-        .badge-status { padding: 5px 12px; border-radius: 8px; font-weight: 700; font-size: 0.65rem; }
-        .bg-paid { background: #dcfce7; color: #166534; }
-        .bg-pending { background: #fee2e2; color: #991b1b; }
+        /* Table & UI Elements */
+        .scroll-area { max-height: 400px; overflow-y: auto; border-radius: 15px; }
+        .table-premium th { background: var(--royal-blue); color: white; font-size: 0.75rem; text-transform: uppercase; padding: 18px; sticky: top; }
+        .table-premium td { padding: 15px; font-size: 0.9rem; vertical-align: middle; }
+        
+        .badge-status { padding: 6px 14px; border-radius: 10px; font-weight: 800; font-size: 0.7rem; }
+        .bg-paid { background: #ecfdf5; color: #059669; border: 1px solid #10b981; }
+        .bg-pending { background: #fff1f2; color: #e11d48; border: 1px solid #f43f5e; }
 
         .btn-save {
             background: linear-gradient(135deg, var(--premium-blue), var(--royal-blue));
-            color: white; border: none; padding: 12px; border-radius: 12px; font-weight: 800; width: 100%;
+            color: white; border: none; padding: 15px; border-radius: 15px; 
+            font-weight: 800; width: 100%; transition: 0.3s;
+            box-shadow: 0 10px 20px rgba(30, 58, 138, 0.3);
         }
+        .btn-save:hover { transform: scale(1.02); box-shadow: 0 15px 25px rgba(30, 58, 138, 0.4); }
 
-        .admin-trigger { position: absolute; top: 15px; right: 15px; opacity: 0.2; cursor: pointer; color: white; }
+        .admin-trigger { position: absolute; top: 20px; right: 20px; color: white; opacity: 0.3; cursor: pointer; }
     </style>
 </head>
 <body>
 
 <header class="header-section">
-    <div class="admin-trigger" onclick="toggleAdmin()"><i class="fas fa-shield-halved fa-lg"></i></div>
+    <div class="admin-trigger" onclick="toggleAdmin()"><i class="fas fa-user-shield fa-xl"></i></div>
     <div class="container">
-        <div class="logo-container">
-            <svg width="70" height="70" viewBox="0 0 100 120">
-                <path d="M50 5 L90 25 L90 75 C90 95 50 115 50 115 C50 115 10 95 10 75 L10 25 Z" fill="#1e3a8a" stroke="#fbbf24" stroke-width="4"/>
-                <path d="M30 40 L70 40 M30 60 L70 60 M50 30 L50 80" stroke="#fbbf24" stroke-width="5" stroke-linecap="round"/>
-            </svg>
-        </div>
-        <h1 class="fw-extrabold">SK ST. ANNE'S CONVENT</h1>
-        <p class="sub-text">SISTEM SUMBANGAN PIBG 2026</p>
+        <img src="https://i.ibb.co/LzfNfC7x/image.jpg" alt="Lencana SK St Anne's" class="school-logo">
+        <h1 class="fw-bolder" style="letter-spacing: -1px;">SK ST. ANNE'S CONVENT</h1>
+        <p class="opacity-75 fw-bold">SISTEM PENGURUSAN SUMBANGAN PIBG 2026</p>
     </div>
 </header>
 
 <main class="container main-content">
-    <div class="row g-3 mb-4">
-        <div class="col-md-3 col-6"><div class="stat-card"><div class="stat-label">Terkumpul</div><div class="stat-value" id="totalSemasa">RM 0</div></div></div>
-        <div class="col-md-3 col-6"><div class="stat-card"><div class="stat-label">PIBG</div><div class="stat-value text-primary" id="totalPIBG">RM 0</div></div></div>
-        <div class="col-md-3 col-6"><div class="stat-card"><div class="stat-label">Tambahan</div><div class="stat-value text-info" id="totalTambahan">RM 0</div></div></div>
-        <div class="col-md-3 col-6"><div class="stat-card"><div class="stat-label">Status</div><div class="stat-value text-success" id="countSelesai">0/0</div></div></div>
+    <div class="row g-4 mb-5">
+        <div class="col-md-3">
+            <div class="stat-card">
+                <div class="stat-label">Jumlah Terkumpul</div>
+                <div class="stat-value text-primary" id="totalSemasa">RM 0</div>
+                <i class="fas fa-wallet stat-icon"></i>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-card">
+                <div class="stat-label">Dana PIBG</div>
+                <div class="stat-value" style="color: #0d9488;" id="totalPIBG">RM 0</div>
+                <i class="fas fa-hand-holding-heart stat-icon"></i>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-card">
+                <div class="stat-label">Dana Tambahan</div>
+                <div class="stat-value" style="color: #7c3aed;" id="totalTambahan">RM 0</div>
+                <i class="fas fa-plus-circle stat-icon"></i>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-card" style="border-right: 6px solid #10b981;">
+                <div class="stat-label">Status Bayaran</div>
+                <div class="stat-value text-success" id="countSelesai">0/0</div>
+                <i class="fas fa-users stat-icon"></i>
+            </div>
+        </div>
     </div>
 
     <div class="row">
         <div class="col-lg-4">
             <div class="premium-card">
-                <h6 class="fw-bold mb-3">Daftar Bayaran</h6>
-                <div class="mb-2"><label class="small fw-bold">KELAS</label><select id="selKelas" class="form-select form-select-sm"></select></div>
-                <div class="mb-2"><label class="small fw-bold">NAMA MURID</label><select id="selNama" class="form-select form-select-sm"></select></div>
-                <div class="mb-3"><label class="small fw-bold">PAKEJ</label>
-                    <select id="selAmaun" class="form-select form-select-sm">
+                <h5 class="fw-bold mb-4"><i class="fas fa-edit me-2 text-warning"></i>Kemasukan Data</h5>
+                <div class="mb-3">
+                    <label class="small fw-bolder mb-1">PILIH KELAS</label>
+                    <select id="selKelas" class="form-select border-0 shadow-sm p-3 bg-light"></select>
+                </div>
+                <div class="mb-3">
+                    <label class="small fw-bolder mb-1">NAMA MURID</label>
+                    <select id="selNama" class="form-select border-0 shadow-sm p-3 bg-light"></select>
+                </div>
+                <div class="mb-4">
+                    <label class="small fw-bolder mb-1">KATEGORI SUMBANGAN</label>
+                    <select id="selAmaun" class="form-select border-0 shadow-sm p-3 bg-light">
                         <option value="170">KOMBO (RM170)</option>
-                        <option value="100">PIBG (RM100)</option>
-                        <option value="70">TAMBAHAN (RM70)</option>
+                        <option value="100">SUMBANGAN PIBG (RM100)</option>
+                        <option value="70">DANA TAMBAHAN (RM70)</option>
                     </select>
                 </div>
                 <button class="btn btn-save" id="btnSimpan">SIMPAN REKOD</button>
             </div>
-            <div class="premium-card"><canvas id="pieChart"></canvas></div>
+            
+            <div class="premium-card text-center">
+                <h6 class="fw-bold mb-3">Analisis Keseluruhan</h6>
+                <canvas id="pieChart"></canvas>
+            </div>
         </div>
 
         <div class="col-lg-8">
             <div class="premium-card">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h6 class="fw-bold m-0">REKOD PEMBAYARAN</h6>
-                    <button class="btn btn-sm btn-dark px-3 rounded-pill" onclick="downloadCSV()">EXPORT</button>
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h5 class="fw-bold m-0 text-primary">REKOD PEMBAYARAN</h5>
+                    <button class="btn btn-dark btn-sm rounded-pill px-4" onclick="downloadCSV()">
+                        <i class="fas fa-file-export me-2"></i>EXPORT CSV
+                    </button>
                 </div>
-                <div class="scroll-area">
+                <div class="scroll-area shadow-inner bg-white">
                     <table class="table table-premium m-0">
-                        <thead><tr><th>Nama Murid</th><th>Kelas</th><th>Amaun</th><th class="admin-only" style="display:none">Action</th></tr></thead>
+                        <thead>
+                            <tr><th>Murid</th><th>Kelas</th><th>Amaun</th><th class="admin-only" style="display:none">Action</th></tr>
+                        </thead>
                         <tbody id="tableSelesai"></tbody>
                     </table>
                 </div>
             </div>
 
             <div class="premium-card">
-                <h6 class="fw-bold mb-3 text-danger">SENARAI BELUM BAYAR</h6>
-                <div class="scroll-area">
+                <h5 class="fw-bold mb-4 text-danger">SENARAI BELUM MENYUMBANG</h5>
+                <div class="scroll-area bg-white">
                     <table class="table table-premium m-0">
-                        <thead><tr><th>Nama Murid</th><th>Kelas</th><th class="text-center">Status</th></tr></thead>
+                        <thead>
+                            <tr><th>Nama Murid</th><th>Kelas</th><th class="text-center">Status</th></tr>
+                        </thead>
                         <tbody id="tableBelum"></tbody>
                     </table>
                 </div>
@@ -133,6 +189,7 @@
 </main>
 
 <script type="module">
+    // --- FIREBASE & DATA LOGIC SAMA SEPERTI SEBELUMNYA ---
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
     import { getDatabase, ref, push, onValue, remove } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 
@@ -150,6 +207,7 @@
     const db = getDatabase(app);
     const dbRef = ref(db, 'yuran_2026');
 
+    // Masukkan semula rawData (Senarai murid yang telah anda berikan)
     const rawData = {
         "1 Daffodils": ["AAIRA SOPHEA BINTI HAZMEER", "AILEEN SURAIYA BINTI MUHAMMAD NURSYAHMI", "AYRA NADHIRAH BINTI ABDUL RAZAK", "DEANDRA ADELYA BINTI MOHD KAMARUL SHAHID", "DIVYA A/P KUMARAN", "FATHIMA SHAZNA BINTI MANSOOR KHAN", "IZA IZZARA BINTI IZAT IZZUDIN", "KAAVYASREE A/P SASIDARAN", "KHAYLA AFEEYA BINTI RAZMAN FAIZ", "LEYVINIAA JAHYAVIKNES SHAN", "NUR AAFIYAH BINTI MUHAMMAD HAKIIM", "NUR AALIYA ZAHRA BINTI MUHAMMAD MUIZZUDDIN", "NUR AIRIS SOFEA BINTI MOHAMAD YUHANIF", "NUR AISYAH ZAHIRAH BINTI MUHAMMAD AKMAL", "NUR AULIYA SAFFIYAH BINTI MUHAMMAD FITRIASHRAF", "NUR MARISSA BINTI MOHD FITRI", "NUR RAISHA ZAFIRAH BINTI PAHROLRAZI", "NUR ZAHIRA BINTI SYAROLRIZAL", "NUREEN MIKAYLA BINTI RUSDI AZIZ", "NURUL AMIRAH SOFIA BINTI ABDULLAH", "PUTERI BALQIS BINTI KAMALRULZAMAN", "PUTERI QAYRA AFIYA BINTI MOHD AMIRUL ANUAR", "QURRATUL UMNI HANIYYA BINTI MOHD RIDZUAN", "RAJA NELISSA BINTI RAJA HAZREN", "RAPHEALLA MOHAN", "RIZQ RUMAISA BINTI MOHD RIZAL", "RUMAISHA BINTI AB ZILJALALI WALIKRAM", "SAGISHNA A/P DINNAISH", "SHAMITA MOHAN GANES", "SITI NURHAFIZAH BINTI HELMI", "SITI SUHAILA SYAHIRAH BINTI MUHAMad SAIFULIZAM", "SOFIA NUR AISHAH BINTI MOHD ZAMRIE", "SOFIA NUR ZULAIKHA BINTI MOHD ZAMRIE", "SREESHA NAIR A/P JANATHERAN NAIR", "YUSRIENA DELISHA BINTI MOHAMAD YUSOF", "ZIA AINUL MARDHIAH BINTI MOHD ZAIM"],
         "1 Camellia": ["AFIQAH BINTI HALIDZAN", "AL ZAHRA ROSE BINTI JEFRY", "AZZA ZINNIRAH BINTI MUHAMMAD ZARUL AZUANDI", "DHIA INARA BINTI MUHAMMAD ISHAM", "DHIA SOFEA AZZAHRA BINTI MOHD FAISAL", "DIAN SURFINA BINTI MOHD SAZALI", "HANAN INARA BINTI MOHD SHAHRIN", "HUZAIRAH FARZEEN BINTI MUHAMMAD HASHIM", "JAYASREE A/P SARAVANAN", "KAMAL EYDENE AMEENA BINTI KAMAL ARIFIN", "LENISHA A/P MUKKESH", "MALAIQA HUMAIRA BINTI ZULKIFLI", "MIA ZAREEN QHADIJAH BINTI KHAIRUL BAHARI", "NOR FARISHA NAURA BINTI MUHAMAD NOR FAKHRI", "NUR AATHIFAH MAWIYAH BINTI MOHD AZAHAR", "NUR HIDAYATUL HUSNA BINTI MUHAMMAD FIRDAUS", "NUR IMANI HUMAIRAH BINTI SHAHROL NIZAM", "NUR KHAIRIN AAFIYAH BINTI MUHAMMAD KAMAL", "NUR KHAWLAH ZINNIRAH BINTI HAIRUL RIZUAN", "NUR NAINA AMIRA AMSYAR BINTI UMAR AMSYAR SURESH", "NUR QASEH ELSABELLA BINTI ROSDI", "NUR QASIH MIKAYLA BINTI MOHD EFFENDY", "NUR RAISHA IRDINA BINTI MOHD.RIZUWAN", "NUR ZAFREENAH BINTI AHMAD", "NUR ZARRA SOFEA BINTI MOHD SAIDY", "NURUL AAFIYAH BINTI MUHAMMAD AZMI", "PUTRI NUR AISYAH ZAHRA BINTI MUHAMMAD ZUFPI", "QASEH DELISHA BINTI SYAHRIZAN", "SHAANELLE NAVYAA RAJ", "SITI AISYAH HUMAIRA BINTI HARD", "THIYALINI A/P THIAGU", "ZARYN AEESYA BINTI AMIR AIZAT"],
@@ -170,34 +228,34 @@
     const sK = document.getElementById('selKelas');
     const sN = document.getElementById('selNama');
 
-    sK.innerHTML = '<option value="">-- KELAS --</option>';
+    sK.innerHTML = '<option value="">-- PILIH KELAS --</option>';
     Object.keys(rawData).forEach(k => sK.innerHTML += `<option value="${k}">${k}</option>`);
 
     sK.onchange = () => {
-        sN.innerHTML = '<option value="">-- NAMA --</option>';
+        sN.innerHTML = '<option value="">-- PILIH NAMA --</option>';
         if(rawData[sK.value]) {
             rawData[sK.value].sort().forEach(n => sN.innerHTML += `<option value="${n}">${n}</option>`);
         }
     };
 
     window.toggleAdmin = () => {
-        if(prompt("Admin Password:") === "admin123") {
+        if(prompt("Masukkan Password Admin:") === "admin123") {
             isAdmin = !isAdmin;
             document.querySelectorAll('.admin-only').forEach(el => el.style.display = isAdmin ? 'table-cell' : 'none');
-            alert("Admin Mode: " + (isAdmin ? "ON" : "OFF"));
+            alert("Mode Admin: " + (isAdmin ? "AKTIF" : "NON-AKTIF"));
         }
     };
 
-    window.padamRekod = (key) => { if(confirm("Padam?")) remove(ref(db, `yuran_2026/${key}`)); };
+    window.padamRekod = (key) => { if(confirm("Padam rekod ini?")) remove(ref(db, `yuran_2026/${key}`)); };
 
     document.getElementById('btnSimpan').onclick = () => {
-        if(!sN.value) return alert("Pilih murid!");
+        if(!sN.value) return alert("Sila pilih nama murid!");
         push(dbRef, {
             nama: sN.value, kelas: sK.value, 
             amaun: parseInt(document.getElementById('selAmaun').value),
             tarikh: new Date().toLocaleDateString()
         });
-        alert("Direkod!");
+        alert("Rekod berjaya disimpan!");
     };
 
     function renderData() {
@@ -215,27 +273,27 @@
                 if(r.amaun >= 100) pibg += 100;
                 if(r.amaun == 70 || r.amaun == 170) tam += 70;
                 paid.add(r.nama); count++;
-                tS.innerHTML += `<tr><td><strong>${r.nama}</strong></td><td>${r.kelas}</td><td><span class="badge-status bg-paid">RM${r.amaun}</span></td><td class="admin-only" style="display:${isAdmin?'table-cell':'none'}"><button class="btn btn-sm text-danger" onclick="padamRekod('${key}')"><i class="fas fa-trash"></i></button></td></tr>`;
+                tS.innerHTML += `<tr><td><strong>${r.nama}</strong></td><td><span class="text-muted small">${r.kelas}</span></td><td><span class="badge-status bg-paid">RM${r.amaun}</span></td><td class="admin-only" style="display:${isAdmin?'table-cell':'none'}"><button class="btn btn-sm text-danger" onclick="padamRekod('${key}')"><i class="fas fa-trash-can"></i></button></td></tr>`;
             });
 
             let tM = 0;
             Object.entries(rawData).forEach(([k, list]) => {
                 list.forEach(m => {
                     tM++;
-                    if(!paid.has(m)) tB.innerHTML += `<tr><td>${m}</td><td>${k}</td><td class="text-center"><span class="badge-status bg-pending">BELUM</span></td></tr>`;
+                    if(!paid.has(m)) tB.innerHTML += `<tr><td>${m}</td><td><span class="text-muted small">${k}</span></td><td class="text-center"><span class="badge-status bg-pending">BELUM</span></td></tr>`;
                 });
             });
 
-            document.getElementById('totalSemasa').innerText = `RM ${total}`;
-            document.getElementById('totalPIBG').innerText = `RM ${pibg}`;
-            document.getElementById('totalTambahan').innerText = `RM ${tam}`;
+            document.getElementById('totalSemasa').innerText = `RM ${total.toLocaleString()}`;
+            document.getElementById('totalPIBG').innerText = `RM ${pibg.toLocaleString()}`;
+            document.getElementById('totalTambahan').innerText = `RM ${tam.toLocaleString()}`;
             document.getElementById('countSelesai').innerText = `${count} / ${tM}`;
             
             if(pieChart) pieChart.destroy();
             pieChart = new Chart(document.getElementById('pieChart'), {
                 type: 'doughnut',
-                data: { labels: ['Selesai', 'Belum'], datasets: [{ data: [count, tM-count], backgroundColor: ['#0f172a', '#f1f5f9'], borderWidth: 0 }] },
-                options: { cutout: '80%', plugins: { legend: { position: 'bottom' } } }
+                data: { labels: ['Selesai', 'Belum'], datasets: [{ data: [count, tM-count], backgroundColor: ['#fbbf24', '#e2e8f0'], borderWidth: 0 }] },
+                options: { cutout: '80%', plugins: { legend: { display: false } } }
             });
         });
     }
@@ -246,7 +304,7 @@
             Object.values(s.val()||{}).forEach(r => csv += `"${r.nama}","${r.kelas}",${r.amaun},${r.tarikh}\n`);
             const a = document.createElement('a');
             a.href = URL.createObjectURL(new Blob([csv], {type:'text/csv'}));
-            a.download = 'Laporan_PIBG_2026.csv'; a.click();
+            a.download = 'Laporan_PIBG_ST_ANNE.csv'; a.click();
         }, {onlyOnce: true});
     };
 
